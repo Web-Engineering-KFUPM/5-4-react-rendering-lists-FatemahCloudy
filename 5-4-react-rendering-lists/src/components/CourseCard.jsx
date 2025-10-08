@@ -38,7 +38,18 @@ export default function CourseCard({ course, index, onMutateCourse }) {
       {/* 🟩 PART A (Anchor): If NO tasks → show message; ELSE → render the list (ternary ?: ) */}
       <section className="tasksSection">
         {/* 📘 TASK 2 — Render Tasks for Each Course */}
-        {/* 🔎 Anchor: You’ll write your code right inside this list. */}
+          {course.tasks.length === 0 ? (
+              <li>No tasks yet. Add your first one below.</li>
+          ) : (
+              course.tasks.map((task) => (
+                  <TaskItem
+                      key={task.id}
+                      task={task}
+                      onToggle={toggleTask}
+                      onDelete={deleteTask}
+                  />
+              ))
+          )}
         <ul className="tasks">
           {/* TODO: course.tasks.map(task => <TaskItem key={task.id} task={task} onToggle={toggleTask} onDelete={deleteTask} />) */}
         </ul>
