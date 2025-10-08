@@ -11,11 +11,9 @@ return (
         {/* 🟩 PART B (Anchor): Only render <DueBadge /> if task is NOT done (logical &&) */}
         {!task.isDone && <DueBadge dueDate={task.dueDate}/>}
 
-
         {/* Task title goes here */}
         <span className={`title ${task.isDone ? "completed" : ""}`}>{task.title}</span>
     </label>
-
 
     {/* 🟩 PART B (Anchor): Delete button should call onDelete(task.id) */}
     <button className="ghost" aria-label="Delete task" onClick={() => onDelete(task.id)}>
